@@ -1,0 +1,143 @@
+body {
+    background-color: #edede9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.up-container {
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+
+}
+.container, .result-container {
+    max-width: 90%; 
+    margin: auto;
+    background-color: #8aa4ba;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.container {
+    background-color: #31c5cf;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    
+    text-align: left;
+}
+
+.input-group {
+    display: flex;
+
+    width: 90%;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"],
+.input-group input[type="date"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.input-group button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: black;
+    cursor: pointer;
+    width: 30%;
+    align-self: center; 
+    transition: background-color 0.3s ease;
+}
+
+.input-group button:hover {
+    background-color: #0056b3;
+}
+
+#weathers-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+    margin-top: 30px;
+    width: 100%; 
+}
+
+.weather {
+    background-color: #eeeeee;
+    padding: 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.title {
+    background-color: #31c5cf;
+    padding: 5px;
+    text-align: left;
+}
+
+
+.pagination-div button {
+
+    padding: 10px 15px; 
+    background-color: #31c5cf;
+    color: black;
+    margin-right: 60px; 
+}
+
+.pagination-div button:last-child {
+    margin-right: 0; 
+}
+
+.pagination-div button:hover {
+    background-color: #0056b3;
+}
+
+
+@-webkit-keyframes scale {
+    0%   { transform: scale(0.5,0.5); }
+    100% { transform: scale(1,1); }
+  }
+  @-moz-keyframes scale {
+    0%   { transform: scale(0.5,0.5); }
+    100% { transform: scale(1,1); }
+  }
+  @-o-keyframes scale {
+    0%   { transform: scale(0.5,0.5); }
+    100% { transform: scale(1,1); }
+  }
+  @keyframes scale {
+    0%   { transform: scale(0.5,0.5); }
+    100% { transform: scale(1,1); }
+  }
+  
+  .page {
+   animation-name: scale;
+   animation-duration: 2s; 
+   animation-fill-mode: forwards; 
+  }
+
+  html {
+    text-align: center;
+    font-family: calibri, arial, sans-serif;
+  }
+  .location {
+    display: block;
+    font-size: 0.8em;
+  }
+  
+  

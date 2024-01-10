@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weathers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.2/dist/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+<div class="main-container">
+    <div class="up-container">
+
+
+        <div class="container">
+            <div class="input-group">
+                <input type="text" id="city" placeholder="Insert city" value="madrid">
+                <button class="fetch-weathers">Search</button>
+            </div>
+        </div>
+    </div>
+    
+        <div class="result-container">
+            <div class="pagination-div">
+               
+                <button id="prev-button">Prev</button>
+                <button id="location-button">location</button>
+                <button id="refresh-button">Refresh</button>
+                <button id="next-button">Next</button>
+            </div> 
+            
+            <div id="weathers-list"></div>  
+            
+
+        </div>
+    
+    </div>
+   
+
+
+    <script id="weathers-template" type="text/x-handlebars-template">
+        {{#each weatherData}}
+        <div class="page">
+          <div class="weather">
+            <button class="add-weather" data-city="{{city}}" data-temp="{{temp}}" >add</button>
+            <p>city: {{city}}</p>
+            <p>temp: {{temp}}</p>
+            <button class="remove-weather" data-city="{{city}}" data-temp="{{temp}}">remove</button>
+          </div>
+        </div>
+        {{/each}}
+      </script>
+      
+      
+    
+
+    
+    
+    <script type="module" src="weatherManager.js"></script>
+    <script type="module" src="render.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
