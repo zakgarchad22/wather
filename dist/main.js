@@ -14,7 +14,7 @@ const maxItems = 4
 let currentPage = 0
 let totalWeathers = []
 let paginatedItems = 0
-let listOfExists = []
+
 
 
 
@@ -59,27 +59,23 @@ $('.fetch-weathers').on('click', async () =>
   const city = $('#city').val().toLowerCase()
   
   let weatherResponse = await weatherManager.getWeathers(city)
-  let isExists = listOfExists.includes(city)
-  if(!isExists)
-  {
-    listOfExists.push(city)
+
+    
     let weathers = {
 
       city: weatherResponse.name,
       temp: weatherResponse.main.temp
  
       
-  }
+    }
   totalWeathers.push(weathers)
   renderer.renderWeathers(totalWeathers)
   showPage()
-  }
+  })
 
-  renderer.renderWeathers(totalWeathers)
-  //items should go to next page
-  showPage()
 
-})
+
+
 
 $('.pagination-div').on('click', '#refresh-button' , async () => 
 {
@@ -180,16 +176,12 @@ $('.pagination-div').on('click', '#location-button' , async () =>
 
 
   $(document).on("click", ".add-weather", function () {
-    console.log("Add button clicked");
     const city = $(this).data("city").toLowerCase();
     const temp = $(this).data("temp");
-    if(!listOfExists.includes(city))
-    {
-      listOfExists.push(city)
-    
+     
     weatherManager.addWeather(city, temp)
 
-    }
+    
     cityStates[city] = true
     localStorage.setItem('cityStates', JSON.stringify(cityStates))
     $(this).prop("disabled", true)
@@ -201,14 +193,7 @@ $('.pagination-div').on('click', '#location-button' , async () =>
   $(document).on("click", ".remove-weather", function () {
     const city = $(this).data("city").toLowerCase();
     const temp = $(this).data("temp");
-    
- 
-      
-    listOfExists.splice(listOfExists.indexOf(city), 1)
     weatherManager.removeWeather(city, temp);
-    
-
-    
     cityStates[city] = false
     localStorage.setItem('cityStates', JSON.stringify(cityStates))
     $(this).prop("disabled", true)
