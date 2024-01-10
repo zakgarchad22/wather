@@ -178,12 +178,13 @@ $('.pagination-div').on('click', '#location-button' , async () =>
   $(document).on("click", ".add-weather", function () {
     const city = $(this).data("city").toLowerCase();
     const temp = $(this).data("temp");
-     
+    if(cityStates.hasOwnProperty(city)){return}
     weatherManager.addWeather(city, temp)
 
     
     cityStates[city] = true
     localStorage.setItem('cityStates', JSON.stringify(cityStates))
+    console.log(cityStates)
     $(this).prop("disabled", true)
     $(this).parent().find(".remove-weather").prop("disabled", false)
 
@@ -193,9 +194,11 @@ $('.pagination-div').on('click', '#location-button' , async () =>
   $(document).on("click", ".remove-weather", function () {
     const city = $(this).data("city").toLowerCase();
     const temp = $(this).data("temp");
+    if(!cityStates.hasOwnProperty(city)){return}
     weatherManager.removeWeather(city, temp);
     cityStates[city] = false
     localStorage.setItem('cityStates', JSON.stringify(cityStates))
+    console.log(cityStates)
     $(this).prop("disabled", true)
     $(this).parent().find(".add-weather").prop("disabled", false)
 
