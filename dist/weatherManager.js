@@ -25,15 +25,21 @@ class WeatherManager {
   }
 
   getAllWeathers() {
-    let url = `/api/weathers`
-
+    let url = `/api/weathers`;
+  
     return fetch(url)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok.')
+        }
+        return response.json()
+      })
       .then(data => {
-        return data
+        return data;
       })
       .catch(error => console.error('Error fetching weather data:', error))
-}
+  }
+  
 
   getWeathers(city) {
     let url = `/api/weather/${city}`
