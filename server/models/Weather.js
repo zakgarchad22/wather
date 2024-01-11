@@ -13,12 +13,12 @@ const weatherSchema = new Schema({
 
 const Weather = mongoose.model("Weather", weatherSchema)
 
-const weatherData = {
-  city: "madrid",
-  temp: 100
-}
-    const weather = new Weather(weatherData)
-    weather.save()
+// const weatherData = {
+//   city: "madrid",
+//   temp: 100
+// }
+//     const weather = new Weather(weatherData)
+//     weather.save()
 
 
 module.exports = Weather
