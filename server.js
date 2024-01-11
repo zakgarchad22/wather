@@ -4,7 +4,7 @@ const api = require('./server/routes/api')
 const path = require('path')
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb://127.0.0.1:27017/weatherDB", {
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/weatherDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
@@ -23,7 +23,5 @@ app.get('/', (req, res) => {
 })
 
 
-const port = 4200;
-app.listen(port, () => {
-  console.log(`Running on port ${port}`)
-})
+const PORT = 8080
+app.listen(process.env.PORT || PORT);
