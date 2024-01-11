@@ -8,7 +8,10 @@ mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/weatherDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
-}).catch((err) => console.log(err));
+})
+.then(() => console.log("MongoDB successfully connected"))
+.catch((err) => console.log("MongoDB connection error:", err));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
